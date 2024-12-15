@@ -6,12 +6,12 @@ export class BaseRepository {
         this.baseUrl = baseUrl;
 
         // Закодированное сочетание логина и пароля в Base64 (UTF-8)
-        const credentials = this.encodeBase64('Коптев ДС:');
+        const credentials = this.encodeBase64('Коптев ДС','');
         this.authHeader = `Basic ${credentials}`;
     }
 
-    private encodeBase64(input: string): string {
-        return btoa(unescape(encodeURIComponent(input)));
+    private encodeBase64(login: string, password: string): string {
+        return btoa(unescape(encodeURIComponent(`${login}:${password}`)));
     }
 
     private getHeaders() {

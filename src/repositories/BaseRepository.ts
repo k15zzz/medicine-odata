@@ -22,10 +22,9 @@ export class BaseRepository {
     }
 
     async get<T>(url: string): Promise<T> {
-        const response = await fetch(`${this.baseUrl}${url}`, {
+        const response = await fetch(`${this.baseUrl}${url}?$format=json`, {
             method: 'GET',
             headers: this.getHeaders(),
-            mode: 'no-cors',
         });
 
         if (!response.ok) {
@@ -36,26 +35,24 @@ export class BaseRepository {
     }
 
     async post<T>(url: string, data: unknown): Promise<T> {
-        const response = await fetch(`${this.baseUrl}${url}`, {
+        const response = await fetch(`${this.baseUrl}${url}?$format=json`, {
             method: 'POST',
             headers: this.getHeaders(),
             body: JSON.stringify(data),
-            mode: 'no-cors',
         });
 
         if (!response.ok) {
-            throw new Error(`Error posting data: ${response.status}`);
+            throw new Error(`Error posting data: ${response.status}?$format=json`);
         }
 
         return response.json();
     }
 
     async path<T>(url: string, data: unknown): Promise<T> {
-        const response = await fetch(`${this.baseUrl}${url}`, {
+        const response = await fetch(`${this.baseUrl}${url}?$format=json`, {
             method: 'PATCH',
             headers: this.getHeaders(),
             body: JSON.stringify(data),
-            mode: 'no-cors',
         });
 
         if (!response.ok) {
@@ -66,10 +63,9 @@ export class BaseRepository {
     }
 
     async delete(url: string): Promise<void> {
-        const response = await fetch(`${this.baseUrl}${url}`, {
+        const response = await fetch(`${this.baseUrl}${url}?$format=json`, {
             method: 'DELETE',
             headers: this.getHeaders(),
-            mode: 'no-cors',
         });
 
         if (!response.ok) {

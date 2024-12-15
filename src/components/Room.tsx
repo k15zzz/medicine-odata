@@ -8,7 +8,7 @@ import {RoomRepository} from "~/repositories/RoomRepository";
 export default function Room() {
     const columns = [
         {key: "Description", label: "Наименование", editable: true},
-        {key: "Статус", label: "Статус", editable: true},
+        {key: "Описание", label: "Статус", editable: true},
     ] as Column<Room>[];
 
     return <GenericTable<Room>

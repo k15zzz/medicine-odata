@@ -83,7 +83,7 @@ const GenericTable = <T extends { Ref_Key: string }>({columns, repository}: Gene
     };
 
     const handleCreate = () => {
-        setEditingRow({Ref_Key: ""} as T); // Новый пустой объект
+        setEditingRow({} as T); // Новый пустой объект
         setIsCreating(true); // Режим создания
         setModalOpen(true);
     };

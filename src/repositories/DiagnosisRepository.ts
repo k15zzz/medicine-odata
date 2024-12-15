@@ -8,7 +8,7 @@ export class DiagnosisRepository extends BaseRepository implements CRUDRepositor
     }
 
     async readAll(): Promise<Diagnosis[]> {
-        const response = await this.get<{ value: Diagnosis[] }>('Catalog_Диагнозы?$format=json');
+        const response = await this.get<{ value: Diagnosis[] }>('Catalog_Диагнозы');
         return response.value;
     }
 

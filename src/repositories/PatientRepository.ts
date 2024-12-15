@@ -8,7 +8,7 @@ export class PatientRepository extends BaseRepository implements CRUDRepository<
     }
 
     async readAll(): Promise<Patient[]> {
-        const response = await this.get<{ value: Patient[] }>('Catalog_Пациенты?$format=json');
+        const response = await this.get<{ value: Patient[] }>('Catalog_Пациенты');
         return response.value;
     }
 

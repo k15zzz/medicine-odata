@@ -5,7 +5,7 @@ export interface Patient {
     Code: string;               // Код
     Description: string;        // Краткое описание
     "ФИО": string;              // ФИО пациента
-    "Возраст": string;          // Возраст пациента
+    "Возвраст": string;         // Возраст пациента
     Predefined: boolean;        // Предопределённый
     PredefinedDataName: string; // Имя предопределённых данных
 }

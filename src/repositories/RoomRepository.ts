@@ -9,7 +9,7 @@ export class RoomRepository extends BaseRepository implements CRUDRepository<Roo
     }
 
     async readAll(): Promise<Room[]> {
-        const response = await this.get<{ value: Room[] }>('Catalog_Палаты?$format=json');
+        const response = await this.get<{ value: Room[] }>('Catalog_Палаты');
         return response.value;
     }
 

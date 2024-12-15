@@ -8,7 +8,7 @@ export class PositionRepository extends BaseRepository implements CRUDRepository
     }
 
     async readAll(): Promise<Position[]> {
-        const response = await this.get<{ value: Position[] }>('Catalog_Должности?$format=json');
+        const response = await this.get<{ value: Position[] }>('Catalog_Должности');
         return response.value;
     }
 

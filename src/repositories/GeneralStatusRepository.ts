@@ -8,7 +8,7 @@ export class GeneralStatusRepository extends BaseRepository implements CRUDRepos
     }
 
     async readAll(): Promise<GeneralStatus[]> {
-        const response = await this.get<{ value: GeneralStatus[] }>('Catalog_ОбщийСтатус?$format=json');
+        const response = await this.get<{ value: GeneralStatus[] }>('Catalog_ОбщийСтатус');
         return response.value;
     }
 

@@ -5,9 +5,13 @@ export class BaseRepository {
     constructor(baseUrl: string) {
         this.baseUrl = baseUrl;
 
-        // Закодированное сочетание логина и пароля в Base64
-        const credentials = btoa('Коптев ДС:');
+        // Закодированное сочетание логина и пароля в Base64 (UTF-8)
+        const credentials = this.encodeBase64('Коптев ДС:');
         this.authHeader = `Basic ${credentials}`;
+    }
+
+    private encodeBase64(input: string): string {
+        return btoa(unescape(encodeURIComponent(input)));
     }
 
     private getHeaders() {

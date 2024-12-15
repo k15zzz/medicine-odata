@@ -25,6 +25,7 @@ export class BaseRepository {
         const response = await fetch(`${this.baseUrl}${url}`, {
             method: 'GET',
             headers: this.getHeaders(),
+            mode: 'no-cors',
         });
 
         if (!response.ok) {
@@ -39,6 +40,7 @@ export class BaseRepository {
             method: 'POST',
             headers: this.getHeaders(),
             body: JSON.stringify(data),
+            mode: 'no-cors',
         });
 
         if (!response.ok) {
@@ -53,6 +55,7 @@ export class BaseRepository {
             method: 'PATCH',
             headers: this.getHeaders(),
             body: JSON.stringify(data),
+            mode: 'no-cors',
         });
 
         if (!response.ok) {
@@ -66,6 +69,7 @@ export class BaseRepository {
         const response = await fetch(`${this.baseUrl}${url}`, {
             method: 'DELETE',
             headers: this.getHeaders(),
+            mode: 'no-cors',
         });
 
         if (!response.ok) {
